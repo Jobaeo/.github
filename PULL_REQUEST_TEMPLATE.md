@@ -1,25 +1,34 @@
 ## What does this PR do?
-<!-- One or two lines. Link the task or issue if there is one. -->
-
-## Type of change
-- [ ] New feature
-- [ ] Bug fix
-- [ ] Refactor / cleanup
-- [ ] Docs
-- [ ] Config / infrastructure
-
-## How was it tested?
-<!-- Tests added or run, or manual steps you followed. -->
+<!-- One or two lines. Cite IDs, e.g. SD-121, TR-513, PR-085. -->
 
 ## Checklist
-- [ ] I tested this locally and it works
-- [ ] No secrets, API keys, passwords or `.env` files are included
-- [ ] No debug code or `print`/`console.log` left behind
-- [ ] Database migrations are included, if I changed any models
-- [ ] Docs or comments are updated where needed
-- [ ] This PR targets the right branch (`dev` for features, `uat` from `dev`, `master` from `uat`)
+- [ ] IDs cited (SD / TR / PR / BRD)
+- [ ] Only files listed for the task (Section 15) changed, or the extras are explained
+- [ ] Tests added or updated
+- [ ] `make check` is green locally
+- [ ] No money rounding outside `core/money.py`
+- [ ] No new `.env` variable without `.env.example` and the Section 9 update
+- [ ] Migration follows SD-240
+- [ ] Nothing in Section 14.3 changed without an accepted SCR
+- [ ] AI session tool named: claude-code / cursor / copilot / codex / none
+- [ ] Screenshots attached for UI changes
+- [ ] Targets the right branch: feature to `dev`, `dev` to `uat`, `uat` to `master`
 
-## Money-related changes
-<!-- Only for ledger, payout, revenue split or fraud logic. Delete this section otherwise. -->
-- [ ] I double-checked the calculations
-- [ ] This has been tested with edge cases (zero, duplicates, rounding)
+Threat model impact: none / see SECCR-##
+
+## Money self-review
+<!-- Only for ledger, payouts, CSV parsing or apply, lock, core/money.py. Leave unticked otherwise. -->
+- [ ] MC / HG cases touched are listed here:
+- [ ] No rounding or float outside `core/money.py`; platform share first, 6 dp half-even, payout USD rounded down with remainder carried, INR half-up (BR-014)
+- [ ] Append-only, locked-month and payout guards unchanged, or new DB tests added
+- [ ] Idempotency and audit rows kept
+- [ ] Migrations are expand-only
+- [ ] Any change to the recompute export is in `docs/recompute/FORMAT.md`, and Dev B is told the format changed (never the code)
+- [ ] Golden, hand-worked and money tests are green on this commit
+
+## Independent AI review
+<!-- Money paths only. -->
+- Tool / model:
+- [ ] Fresh session, started in a clone without `tools/recompute/`, given only this diff, the specs and `docs/ai/money-review.md`
+- Findings:
+- All findings resolved: yes
