@@ -7,8 +7,8 @@ Jobaeo is a new job platform built for job seekers and creators.
 - Tools for creators to share job opportunities with their audience
 
 ## Connect with us
-- Website: coming soon
-- Contact: contact@jobaeo.com
+- Website: https://jobaeo.com
+- Contact: hello@jobaeo.com
 
 ## Security
 Found a vulnerability? Please report it privately. Don't open a public issue.
