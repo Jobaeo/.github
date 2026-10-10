@@ -5,7 +5,7 @@
 If you find a security issue in any Jobaeo product, please report it privately.
 **Do not open a public issue or post it publicly.**
 
-Email: contact@jobaeo.com
+Email: security@jobaeo.com
 
 Please include:
 - A description of the issue and where you found it
