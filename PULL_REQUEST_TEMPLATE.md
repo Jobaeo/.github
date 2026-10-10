@@ -31,4 +31,5 @@ Threat model impact: none / see SECCR-##
 - Tool / model:
 - [ ] Fresh session, started in a clone without `tools/recompute/`, given only this diff, the specs and `docs/ai/money-review.md`
 - Findings:
-- All findings resolved: yes
+
+All findings resolved: no
